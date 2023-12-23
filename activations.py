@@ -2,6 +2,17 @@ import numpy as np
 from layer import Layer
 from activation import Activation
 
+
+class ReLu: 
+    @staticmethod 
+    def activate(x): 
+        return np.maximum(0,x)
+
+
+    @staticmethod
+    def prime(x): 
+        return np.where(x > 0, 1, 0)
+
 class Tanh(Activation):
     def __init__(self):
         def tanh(x):

@@ -3,7 +3,7 @@ from keras.datasets import mnist
 from keras.utils import np_utils
 
 from dense import Dense
-from activations import Tanh
+from activations import ReLu
 from losses import mse, mse_prime
 from network import train, predict
 
@@ -27,9 +27,9 @@ x_test, y_test = preprocess_data(x_test, y_test, 20)
 # neural network
 network = [
     Dense(28 * 28, 40),
-    Tanh(),
+    ReLu(),
     Dense(40, 10),
-    Tanh()
+    ReLu()
 ]
 
 # train
