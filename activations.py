@@ -81,12 +81,12 @@ class T(Activation):
 class Fib(Activation):
     def __init__(self):
         def fib(n):
-            return np.sqrt(5) / ((1 + np.sqrt(5) / 2)**np.floor(n) - (1 - np.sqrt(5) / 2)**np.floor(n))
+            return np.sqrt(5) / ((1 + np.sqrt(5) / 2)**np.floor(1/n) - (1 - np.sqrt(5) / 2)**np.floor(1/n))
 
         
     def __init__(self):
         def fib(n):
-            return np.sqrt(5) / ((1 + np.sqrt(5) / 2)**np.floor(n) - (1 - np.sqrt(5) / 2)**np.floor(n))
+            return np.sqrt(5) / ((1 + np.sqrt(5) / 2)**np.floor(1/n) - (1 - np.sqrt(5) / 2)**np.floor(1/n))
 
         def dummy_derivative(n):
             # Dummy derivative function as a placeholder
