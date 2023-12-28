@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 from dense import Dense
-from activations import Tanh
+from activations import Tanh, Sigmoid, T, Fib
 from losses import mse, mse_prime
 from network import train, predict
 
@@ -12,13 +12,13 @@ Y = np.reshape([[0], [1], [1], [0]], (4, 1, 1))
 
 network = [
     Dense(2, 3),
-    Tanh(),
+    Fib(),
     Dense(3, 1),
     Tanh()
 ]
 
 # train
-train(network, mse, mse_prime, X, Y, epochs=10000, learning_rate=0.1)
+train(network, mse, mse_prime, X, Y, epochs=10000, learning_rate=0.01)
 
 # decision boundary plot
 points = []

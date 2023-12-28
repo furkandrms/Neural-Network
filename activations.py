@@ -31,8 +31,25 @@ class Sigmoid(Activation):
         def sigmoid_prime(x):
             s = sigmoid(x)
             return s * (1 - s)
+        
+"""class T(Activation):
+    def __init__(self):
+        def t(n):
+            return 1 / (n**2 + n - 1)
 
-        super().__init__(sigmoid, sigmoid_prime)
+        def t_prime(n):
+            # Buraya t fonksiyonunun türevini hesaplayan kodu ekleyin
+            pass
+
+        super().__init__(t, t_prime)
+
+
+class Fib(Activation):
+    def __init__(self):
+        super().__init__()
+
+    def fib(self, x):
+        return np.sqrt(5) / ((1 + np.sqrt(5) / 2)**x - (1 - np.sqrt(5) / 2)**x)"""
 
 class Softmax(Layer):
     def forward(self, input):
@@ -47,3 +64,33 @@ class Softmax(Layer):
         # Original formula:
         # tmp = np.tile(self.output, n)
         # return np.dot(tmp * (np.identity(n) - np.transpose(tmp)), output_gradient)
+
+
+class T(Activation):
+    def __init__(self):
+        def t(n):
+            return 1 / (n**2 + n - 1)
+
+        def t_prime(n):
+            # The derivative of the t function
+            return -(2*n + 1) / (n**2 + n - 1)**2
+
+        super().__init__(t, t_prime)
+
+
+class Fib(Activation):
+    def __init__(self):
+        def fib(n):
+            return np.sqrt(5) / ((1 + np.sqrt(5) / 2)**np.floor(n) - (1 - np.sqrt(5) / 2)**np.floor(n))
+
+        
+    def __init__(self):
+        def fib(n):
+            return np.sqrt(5) / ((1 + np.sqrt(5) / 2)**np.floor(n) - (1 - np.sqrt(5) / 2)**np.floor(n))
+
+        def dummy_derivative(n):
+            # Dummy derivative function as a placeholder
+            return np.zeros_like(n)
+
+        super(Fib, self).__init__(fib, dummy_derivative)
+    
